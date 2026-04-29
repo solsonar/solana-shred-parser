@@ -1,0 +1,54 @@
+{
+  "name": "solana-shred-parser",
+  "version": "0.1.0",
+  "description": "Low-latency Solana shred listener and assembler. Receives raw shreds over UDP and reconstructs VersionedTransaction objects in real time, before they reach the confirmed ledger.",
+  "keywords": [
+    "solana",
+    "shred",
+    "shreds",
+    "udp",
+    "geyser",
+    "low-latency",
+    "mev",
+    "transaction",
+    "versioned-transaction",
+    "real-time"
+  ],
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "node --test test/",
+    "lint": "node --check src/ShredListener.js && node --check src/ShredParser.js && node --check src/index.js",
+    "example:basic": "node examples/basic-listener.js",
+    "example:filter": "node examples/filter-by-program.js",
+    "example:stats": "node examples/stats.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "@solana/web3.js": "^1.91.0"
+  },
+  "devDependencies": {
+    "@solana/web3.js": "^1.91.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/<your-github-handle>/solana-shred-parser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/<your-github-handle>/solana-shred-parser/issues"
+  },
+  "homepage": "https://github.com/<your-github-handle>/solana-shred-parser#readme",
+  "author": "<your-name> <your@email>",
+  "license": "MIT"
+}
