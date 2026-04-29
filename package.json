@@ -1,5 +1,5 @@
 {
-  "name": "solana-shred-parser",
+  "name": "@solsonar/solana-shred-parser",
   "version": "0.1.0",
   "description": "Low-latency Solana shred listener and assembler. Receives raw shreds over UDP and reconstructs VersionedTransaction objects in real time, before they reach the confirmed ledger.",
   "keywords": [
@@ -43,12 +43,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/<your-github-handle>/solana-shred-parser.git"
+    "url": "git+https://github.com/solsonar/solana-shred-parser.git"
   },
   "bugs": {
-    "url": "https://github.com/<your-github-handle>/solana-shred-parser/issues"
+    "url": "https://github.com/solsonar/solana-shred-parser/issues"
   },
-  "homepage": "https://github.com/<your-github-handle>/solana-shred-parser#readme",
-  "author": "<your-name> <your@email>",
-  "license": "MIT"
+  "homepage": "https://github.com/solsonar/solana-shred-parser#readme",
+  "author": "Andrija Vujović <vujovic.andrija.b@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  }
 }

@@ -1,9 +1,9 @@
-# solana-shred-parser
+# @solsonar/solana-shred-parser
 
 Low-latency Solana shred listener and assembler. Receives raw shreds over UDP and reconstructs `VersionedTransaction` objects in real time — typically tens to hundreds of milliseconds before the same transactions reach the confirmed RPC ledger.
 
 ```js
-import { ShredListener, ShredParser } from 'solana-shred-parser';
+import { ShredListener, ShredParser } from '@solsonar/solana-shred-parser';
 
 const listener = new ShredListener({ port: 20000 });
 const parser   = new ShredParser();
@@ -40,7 +40,7 @@ If you need transaction-level filtering, instruction decoding, address-lookup-ta
 ## Install
 
 ```sh
-npm install solana-shred-parser @solana/web3.js
+npm install @solsonar/solana-shred-parser @solana/web3.js
 ```
 
 `@solana/web3.js@^1.91.0` is a peer dependency — install it in your project.
@@ -116,7 +116,7 @@ import {
   PAYLOAD_OFFSET,            // 88
   SHRED_SIGNATURE_TRAILER,   // 88
   DEFAULT_MAX_SLOTS,         // 80
-} from 'solana-shred-parser';
+} from '@solsonar/solana-shred-parser';
 ```
 
 ## Performance
@@ -142,6 +142,11 @@ See [`examples/`](./examples) for runnable scripts:
 - `stats.js` — drop-rate and throughput counters
 
 Run with `node examples/basic-listener.js` (after pointing some shred traffic at port 20000).
+
+## Pairs well with
+
+- [`@solsonar/solana-alt-cache`](https://www.npmjs.com/package/@solsonar/solana-alt-cache) — resolve Address Lookup Tables synchronously. Modern Solana txs reference accounts via ALTs; without resolving them, `tx.message.staticAccountKeys` only shows half the picture.
+- [`@solsonar/yellowstone-grpc-client`](https://www.npmjs.com/package/@solsonar/yellowstone-grpc-client) — Yellowstone (Geyser) gRPC client with built-in reconnect, heartbeats, and live subscription updates. Use it alongside this package when you need both shred-level latency *and* confirmed account state.
 
 ## Troubleshooting
 
